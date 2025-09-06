@@ -1,5 +1,4 @@
 # RhombixTechnologies_Tasks
-# RhombixTechnologies Projects
 
 This repository contains the projects and tasks completed during my internship at RhombixTechnologies.  
 The projects are focused on cybersecurity, Python scripting, and network analysis, demonstrating practical implementations of concepts learned during the internship.
