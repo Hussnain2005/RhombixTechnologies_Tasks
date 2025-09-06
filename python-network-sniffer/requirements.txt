@@ -1,0 +1,3 @@
+Python 3.6 or higher
+Root/Administrator privileges (required for raw socket access)
+Linux/Unix-based system (tested on Kali Linux)

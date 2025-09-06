@@ -1,0 +1,67 @@
+Basic Commands
+# List available network interfaces
+sudo python3 network_sniffer.py -l
+
+# Start basic packet capture
+sudo python3 network_sniffer.py
+
+# Capture on specific interface
+sudo python3 network_sniffer.py -i eth0
+
+# Apply BPF filter
+sudo python3 network_sniffer.py -f "tcp port 80"
+
+# Limit packet count
+sudo python3 network_sniffer.py -c 100
+
+
+Advanced Filtering Examples
+# Monitor specific host
+sudo python3 network_sniffer.py -f "host 192.168.1.100"
+
+# HTTP/HTTPS traffic only
+sudo python3 network_sniffer.py -f "port 80 or port 443"
+
+# TCP traffic excluding SSH
+sudo python3 network_sniffer.py -f "tcp and not port 22"
+
+# Monitor port range
+sudo python3 network_sniffer.py -f "portrange 1000-2000"
+
+
+
+Command Line Options
+                                                   Option                                 Description
+                                                   -i, --interfaceNetwork              interface to capture on
+                                                   -f, --filterBPF                     filter expression
+                                                   -c, --count                         Number of packets to capture (0 = unlimited)
+                                                   -l, --list-interfaces               List available network interfaces
+
+
+
+Sample Output
+Starting packet capture...
+Interface: eth0
+Filter: tcp port 80
+Press Ctrl+C to stop
+
+[14:30:45.123] TCP  192.168.1.100:54321 -> 149.56.244.87:80     (  74 bytes)
+                    Flags: SYN
+[14:30:45.156] TCP  149.56.244.87:80    -> 192.168.1.100:54321 (  74 bytes)
+                    Flags: SYN,ACK
+[14:30:45.157] TCP  192.168.1.100:54321 -> 149.56.244.87:80     (  66 bytes)
+                    Flags: ACK
+
+========================================================
+CAPTURE STATISTICS
+========================================================
+Capture Duration: 30.45 seconds
+Total Packets: 157
+Total Bytes: 23,456
+Average Packet Size: 149.40 bytes
+
+Protocol Distribution:
+  TCP Packets: 134
+  UDP Packets: 18
+  ICMP Packets: 3
+  ARP Packets: 2
